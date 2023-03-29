@@ -1,0 +1,45 @@
+const http=require('http')
+const express = require('express');
+const app = express();
+const readline = require("readline-sync");
+ // Enter the number
+ let a = Number(readline.question());
+ let number = [];
+ for (let i = 0; i < a; ++i) {
+   number.push(Number(readline.question()));
+ }
+ const port =5010;
+
+ console.log(number);
+ function even(number) {
+    var ar = [];
+  
+    for (var i = 0; i < number.length; i++) {
+        if(number[i] % 2 === 0) { // index is even
+            ar.push(number[i]);
+        }
+        
+    }
+  return ar
+  }
+  console.log(even(number));
+  function odd(number) {
+    var ar = [];
+  
+    for (var i = 0; i < number.length; i++) {
+        if(number[i] % 2 !== 0) { // index is even
+            ar.push(number[i]);
+        }
+        
+    }
+  return ar
+  }
+  console.log(odd(number));
+app.get('/', function (req, res) {
+   es.status(200).send('Status code of 200!');
+    console.log(res.status(200));
+})
+
+app.listen(port, () => {
+    console.log(`Server is running at the port: ${port}`);
+})
